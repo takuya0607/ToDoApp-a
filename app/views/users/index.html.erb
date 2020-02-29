@@ -3,6 +3,14 @@
 <p>email:<%= @user.email %></p>
 <p>ID:<%= @user.id %></p>
 
+<% if @user.userinfo %>
+  <p>name:<%= @user.userinfo.name %></p>
+  <p>profile:<%= @user.userinfo.profile %></p>
+  <p><%= link_to 'EDIT', edit_userinfo_path(@user.userinfo.id) %></p>
+<% else %>
+  <p><%= link_to 'NEW', new_userinfo_path %></p>
+<% end %>
+
 <table>
   <thead>
     <tr>
