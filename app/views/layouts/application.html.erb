@@ -1,23 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>ToDoApp</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>ToDoApp</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
-    <% if user_signed_in? %>
-      LogOnUser:<%= current_user.email %>
-      <%= link_to 'SignOut', destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to 'SingUp', new_user_registration_path %>
-      <%= link_to 'SignIn', new_user_session_path %>
-    <% end %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link rel="stylesheet" href="/bulma-0.8.0/css/bulma.css">
+</head>
 
-    <%= yield %>
-  </body>
+<body>
+  <section class="section-padding">
+    <div class="container">
+      <div class="notification">
+        <nav class="navbar is-dark">
+          <div class="navbar-brand">
+          <% if user_signed_in? %>
+            <%= link_to 'SignOut', destroy_user_session_path, method: :delete, class: 'navbar-item' %>
+          <% else %>
+            <%= link_to 'SingUp', new_user_registration_path, class: 'navbar-item'%>
+            <%= link_to 'SignIn', new_user_session_path, class: 'navbar-item'%>
+          <% end %>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </section>
+  <section class="section-padding">
+    <div class="container">
+      <div class="notification">
+        <%= yield %>
+      </div>
+    </div>
+  </section>
+</body>
+
 </html>

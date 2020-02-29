@@ -13,17 +13,21 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <div class="control">
+      <%= form.label :name ,:class=>"label"%>
+      <%= form.text_field :name ,:class=>"input"%>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :profile %>
-    <%= form.text_field :profile %>
+    <div class="control">
+      <%= form.label :profile ,:class=>"label"%>
+      <%= form.text_field :profile ,:class=>"input"%>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit nil,:class=>"button" %>
   </div>
 
 <% end %>

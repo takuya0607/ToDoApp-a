@@ -1,7 +1,8 @@
 class UserinfosController < ApplicationController
-  before_action :set_userinfo, only: [:show,:edit,:update]
+  before_action :set_userinfo, only: [:show, :edit, :update]
 
   def show
+    puts "[show]"
   end
 
   def edit
@@ -18,6 +19,7 @@ class UserinfosController < ApplicationController
   end
 
   def new
+    puts "[new]"
     @userinfo = Userinfo.new()
   end
 

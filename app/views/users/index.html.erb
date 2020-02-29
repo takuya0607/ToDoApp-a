@@ -1,17 +1,31 @@
-<h1>Index</h1>
 <% if @user %>
-<p>email:<%= @user.email %></p>
-<p>ID:<%= @user.id %></p>
+<div class="columns">
+  <div class="column">
+    <h1>Index</h1>
+  </div>
+  <div class="column">
+    <p>email:<%= @user.email %></p>
+    <p>ID:<%= @user.id %></p>
+  </div>
+</div>
+<div class="columns">
+    <% if @user.userinfo %>
+      <div class="column">
+        <p>name:<%= @user.userinfo.name %></p>
+        <p>profile:<%= @user.userinfo.profile %></p>
+      </div>
+      <div class="column">
+        <p><%= link_to 'EDIT', edit_userinfo_path(@user.userinfo.id) ,class: 'button is-success is-focused'%></p>
+      </div>
+    <% else %>
+      <div class="column">
+        <p><%= link_to 'NEW', new_userinfo_path ,class: 'button is-success is-focused'%></p>
+      </div>
+    <% end %>
+</div>
 
-<% if @user.userinfo %>
-  <p>name:<%= @user.userinfo.name %></p>
-  <p>profile:<%= @user.userinfo.profile %></p>
-  <p><%= link_to 'EDIT', edit_userinfo_path(@user.userinfo.id) %></p>
-<% else %>
-  <p><%= link_to 'NEW', new_userinfo_path %></p>
-<% end %>
-
-<table>
+<div>
+<table class="table">
   <thead>
     <tr>
       <th>Todo</th>
@@ -20,15 +34,16 @@
   </thead>
   <tbody>
     <% @user.todos.each do |todo| %>
-      <tr>
-        <td><%= todo.Title %></td>
-        <td><%= link_to 'Show', todo %></td>
-        <td><%= link_to 'Edit', edit_todo_path(todo.id) %></td>
-        <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <tr>
+      <td><%= todo.Title %></td>
+      <td><%= link_to 'Show', todo ,class: 'button is-info is-focused'%></td>
+      <td><%= link_to 'Edit', edit_todo_path(todo.id) ,class: 'button is-success is-focused'%></td>
+      <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' },class: 'button is-danger is-focused' %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 
-<%= link_to 'New Todo', new_todo_path %>
+<%= link_to 'New Todo', new_todo_path ,class: 'button is-primary is-focused'%>
 <%end%>
