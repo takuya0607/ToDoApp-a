@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_29_075042) do
+ActiveRecord::Schema.define(version: 2020_02_29_080346) do
 
   create_table "todos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "Title"
     t.text "Detail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "User_id"
+    t.index ["User_id"], name: "index_todos_on_User_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -31,4 +33,5 @@ ActiveRecord::Schema.define(version: 2020_02_29_075042) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "todos", "Users"
 end
