@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>ToDo:</strong>
+  <table>
+    <tbody>
+      <tr><td>Title</td><td>=><%= @todo.Title %></td></tr>
+      <tr><td>Detail</td><td>=><%= @todo.Detail %></td></tr>
+    </tbody>
+  </table>
+</p>
+
+<%= link_to 'Edit', edit_todo_path(@todo) %> |
+<%= link_to 'Back', todos_path %>
