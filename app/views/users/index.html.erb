@@ -1,7 +1,7 @@
 <% if @user %>
 <div class="columns">
   <div class="column">
-    <h1>Index</h1>
+    <h1></h1>
   </div>
   <div class="column">
     <p>email:<%= @user.email %></p>
@@ -11,11 +11,11 @@
 <div class="columns">
     <% if @user.userinfo %>
       <div class="column">
-        <p>name:<%= @user.userinfo.name %></p>
-        <p>profile:<%= @user.userinfo.profile %></p>
+        <p>名前:<%= @user.userinfo.name %></p>
+        <p>プロフィール:<%= @user.userinfo.profile %></p>
       </div>
       <div class="column">
-        <p><%= link_to 'EDIT', edit_userinfo_path(@user.userinfo.id) ,class: 'button is-success is-focused'%></p>
+        <p><%= link_to '編集', edit_userinfo_path(@user.userinfo.id) ,class: 'button is-success is-focused'%></p>
       </div>
     <% else %>
       <div class="column">
@@ -28,7 +28,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Todo</th>
+      <th>やることリスト</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -36,14 +36,14 @@
     <% @user.todos.each do |todo| %>
     <tr>
       <td><%= todo.Title %></td>
-      <td><%= link_to 'Show', todo ,class: 'button is-info is-focused'%></td>
-      <td><%= link_to 'Edit', edit_todo_path(todo.id) ,class: 'button is-success is-focused'%></td>
-      <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' },class: 'button is-danger is-focused' %></td>
+      <td><%= link_to '見る', todo ,class: 'button is-info is-focused'%></td>
+      <td><%= link_to '編集', edit_todo_path(todo.id) ,class: 'button is-success is-focused'%></td>
+      <td><%= link_to '削除', todo, method: :delete, data: { confirm: 'Are you sure?' },class: 'button is-danger is-focused' %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
 </div>
 
-<%= link_to 'New Todo', new_todo_path ,class: 'button is-primary is-focused'%>
+<%= link_to '新規作成', new_todo_path ,class: 'button is-primary is-focused'%>
 <%end%>

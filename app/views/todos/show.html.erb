@@ -4,11 +4,11 @@
   <strong>ToDo:</strong>
   <table>
     <tbody>
-      <tr><td>Title</td><td>=><%= @todo.Title %></td></tr>
-      <tr><td>Detail</td><td>=><%= @todo.Detail %></td></tr>
+      <tr><td>タイトル</td><td>=><%= @todo.Title %></td></tr>
+      <tr><td>詳細</td><td>=><%= @todo.Detail %></td></tr>
     </tbody>
   </table>
 </p>
 
-<%= link_to 'Edit', edit_todo_path(@todo) %> |
-<%= link_to 'Back', root_path %>
+<%= link_to '編集', edit_todo_path(@todo) %> |
+<%= link_to '戻る', root_path %>
