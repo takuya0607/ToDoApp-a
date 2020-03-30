@@ -12,14 +12,14 @@
     <% if @user.userinfo %>
       <div class="column">
         <p>名前:<%= @user.userinfo.name %></p>
-        <p>プロフィール:<%= @user.userinfo.profile %></p>
+        <p>ニックネーム:<%= @user.userinfo.profile %></p>
       </div>
       <div class="column">
         <p><%= link_to '編集', edit_userinfo_path(@user.userinfo.id) ,class: 'button is-success is-focused'%></p>
       </div>
     <% else %>
       <div class="column">
-        <p><%= link_to 'NEW', new_userinfo_path ,class: 'button is-success is-focused'%></p>
+        <p><%= link_to 'プロフィール作成', new_userinfo_path ,class: 'button is-success is-focused'%></p>
       </div>
     <% end %>
 </div>
@@ -38,7 +38,7 @@
       <td><%= todo.Title %></td>
       <td><%= link_to '見る', todo ,class: 'button is-info is-focused'%></td>
       <td><%= link_to '編集', edit_todo_path(todo.id) ,class: 'button is-success is-focused'%></td>
-      <td><%= link_to '削除', todo, method: :delete, data: { confirm: 'Are you sure?' },class: 'button is-danger is-focused' %></td>
+      <td><%= link_to '削除', todo, method: :delete, data: { confirm: '削除してよろしいですか' },class: 'button is-danger is-focused' %></td>
     </tr>
     <% end %>
   </tbody>
