@@ -1,4 +1,4 @@
 # README
 DB設計
-![image]
+![](https://i.gyazo.com/fdac9880e9484c160fd4afc5043bb863.png)
 
