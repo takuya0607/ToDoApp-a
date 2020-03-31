@@ -24,7 +24,7 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       if @todo.save()
-        format.html {redirect_to @todo, notice: 'User was successfully created.'}
+        format.html {redirect_to @todo, notice: ''}
       else
         format.html {render :new}
       end

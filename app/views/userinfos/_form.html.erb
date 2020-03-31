@@ -2,7 +2,7 @@
 
   <% if userinfo.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(userinfo.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(userinfo.errors.count, "") %> 件のエラーが発生しました</h2>
 
       <ul>
       <% userinfo.errors.full_messages.each do |message| %>
