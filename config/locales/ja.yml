@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    attributes:
+      todo:
+        Title: "タイトル"
+        Detail: "詳細"
+      userinfo:
+          name: "名前"
+          profile:  "ニックネーム"
+      user:
+        email: "メールアドレス"
+        password: "パスワード"
