@@ -2,6 +2,58 @@
 # DB設計
 ![](https://i.gyazo.com/fdac9880e9484c160fd4afc5043bb863.png)
 
-# Name
-ToDoアプリ
+## Usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|email|string|null: false, unique: true|
+|password|string|null: false|
+### Association
+has_many :todos,dependent: :destroy
+has_one :userinfo,dependent: :destroy
 
+## Todosテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key :true|
+|title|string|null: false, unique: true|
+|detail|text|null: false, unique: true|
+### Association
+beongs_to :user
+
+## Userinfosテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, unique: true|
+|profile|text|null: false, unique: true|
+
+# Name
+ToDo application
+
+# Overview
+このアプリは、ToDoアプリになります。TECH：：CAMPのカリキュラムを元に作成を行いました。
+作成した理由としてはRubyとRuby on Railsの基礎であるMVCの流れを意識し、日常的に利用できるアプリを作成したかったからです。
+
+# Demo
+新規登録の画面にて、メールアドレスと、パスワード、確認用のパスワードを入力します。
+一度新規登録をすれば、次回以降はログイン画面にて、メールアドレスと、パスワードを入力するとログインできます。
+![](https://i.gyazo.com/36d79bebc5f29d2b5818eee8297762bc.png)
+
+バリデーションを設定し、空入力をした場合はエラーメッセージが表示されます。
+![](https://i.gyazo.com/757d6ba01863e54a9f07efdf1dc499de.png)
+
+新規登録後、トップページに遷移し、自分の名前とアプリ内でのニックネームを設定することができます。
+変更したい場合は、「編集」を押すといつでも変更することができます。
+![](https://i.gyazo.com/9e61e3f194eb320f143ddec6022301ad.png)
+
+「新規作成」を押すと、ToDoリストの作成ができ、タイトルと詳細を入力します。
+![](https://i.gyazo.com/f0cd60f13ac201b3bcf73b00752b3029.png)
+
+「登録する」を実行後、先ほどのトップ画面に遷移し、作成したToDoリストのタイトルのみが表示され、「見る」、「編集」、「削除」が実行できます。
+![](https://i.gyazo.com/7cabbd3979e2b7f2cbdc69cbb3608a78.png)
+
+「見る」を実行した場合、詳細の内容を確認でき、この画面から編集することも可能です。
+![](https://i.gyazo.com/a7d25515ddd759e0545c9d9fa1cf087d.png)
+
+# Requirement
+ruby '2.5.1'
+gem 'rails', '~> 5.2.3'
