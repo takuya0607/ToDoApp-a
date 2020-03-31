@@ -25,6 +25,8 @@ beongs_to :user
 |------|----|-------|
 |name|string|null: false, unique: true|
 |profile|text|null: false, unique: true|
+### Association
+beongs_to :user
 
 # Name
 ToDo application
