@@ -30,7 +30,7 @@ beongs_to :user
 ToDo application
 
 # Overview
-このアプリは、ToDoアプリになります。TECH：：CAMPのカリキュラムを元に作成を行いました。
+このアプリは、ToDoアプリになります。TECH::CAMPのカリキュラムを元に作成を行いました。
 作成した理由としてはRubyとRuby on Railsの基礎であるMVCの流れを意識し、日常的に利用できるアプリを作成したかったからです。
 
 # Demo
