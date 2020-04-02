@@ -15,9 +15,10 @@ ActiveRecord::Schema.define(version: 2020_02_29_084246) do
   create_table "todos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "Title", null: false
     t.text "Detail", null: false
-    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "User_id"
+    t.index ["User_id"], name: "index_todos_on_User_id"
   end
 
   create_table "userinfos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -31,7 +32,6 @@ ActiveRecord::Schema.define(version: 2020_02_29_084246) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
-    t.string "password", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -42,5 +42,6 @@ ActiveRecord::Schema.define(version: 2020_02_29_084246) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "todos", "Users"
   add_foreign_key "userinfos", "Users"
 end
