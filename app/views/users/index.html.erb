@@ -35,7 +35,9 @@
   <tbody>
     <% @user.todos.each do |todo| %>
     <tr>
-      <td><%= todo.Title %></td>
+      <td><%= todo.Title %>
+        <div><%= todo.created_at.strftime("%Y年%m月%d日 %H時%M分") %></div>
+      </td>
       <td><%= link_to '見る', todo ,class: 'button is-info is-focused'%></td>
       <td><%= link_to '編集', edit_todo_path(todo.id) ,class: 'button is-success is-focused'%></td>
       <td><%= link_to '削除', todo, method: :delete, data: { confirm: '削除してよろしいですか' },class: 'button is-danger is-focused' %></td>
