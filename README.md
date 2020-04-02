@@ -1,38 +1,15 @@
-# README
-# DB設計
-![](https://i.gyazo.com/fdac9880e9484c160fd4afc5043bb863.png)
-
-## Usersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|email|string|null: false, unique: true|
-|password|string|null: false|
-### Association
-has_many :todos,dependent: :destroy
-has_one :userinfo,dependent: :destroy
-
-## Todosテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, foreign_key :true|
-|title|string|null: false, unique: true|
-|detail|text|null: false, unique: true|
-### Association
-beongs_to :user
-
-## Userinfosテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false, unique: true|
-|profile|text|null: false, unique: true|
-### Association
-beongs_to :user
-
 # アプリ名
 ToDo application
 
 # 概要
-このアプリは、ToDoアプリになります。タイトルと、そのタイトルに対する内容を入力し保存することができます。
+　◆ ユーザー新規登録
+ 　　・ メールアドレスとパスワードを設定することができます。
+　　 ・ パスワードは6文字の入力で、6文字未満や、7文字以上の場合はバリデーションでエラー表示されるようになります。
+   
+  ◆ ログイン機能
+ 　　・ 新規登録で設定したメールアドレスと、パスワードを使用し、ログインすることができます。
+ 
+  ◆ プロフィール編集画面
 
 # 制作背景
 TECH::CAMPのカリキュラムを参考にし、作成しました。
@@ -81,3 +58,33 @@ gem 'rails', '~> 5.2.3'
 # 課題や今後実装したい機能
 現在個人でしか使えないToDoアプリとなっているので、グループで管理できる機能を考えています。
 理由としては、最終課題でチームのタスク管理として「Trello」というToDoアプリを使用し、とても便利だと感じたからです。
+
+# README
+# DB設計
+![](https://i.gyazo.com/fdac9880e9484c160fd4afc5043bb863.png)
+
+## Usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|email|string|null: false, unique: true|
+|password|string|null: false|
+### Association
+has_many :todos,dependent: :destroy
+has_one :userinfo,dependent: :destroy
+
+## Todosテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key :true|
+|title|string|null: false, unique: true|
+|detail|text|null: false, unique: true|
+### Association
+beongs_to :user
+
+## Userinfosテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, unique: true|
+|profile|text|null: false, unique: true|
+### Association
+beongs_to :user
