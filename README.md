@@ -52,7 +52,6 @@ gem 'rails', '~> 5.2.3'
 # 課題や今後実装したい機能
 Gemfile HTTPartyを使用し、ToDoの予定日が近づいてくると通知が来る機能を設けたいです。
 
-# README
 # DB設計
 ![](https://i.gyazo.com/fdac9880e9484c160fd4afc5043bb863.png)
 
